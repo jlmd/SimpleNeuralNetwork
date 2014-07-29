@@ -17,10 +17,10 @@ Usage
 This is a simple usage with default configuration:
 
 1. First of all, load input and output data. You can read it from external text file:
-```
+    ```
 float[][] x = DataUtils.readInputsFromFile("data/x.txt");
 int[] t = DataUtils.readOutputsFromFile("data/t.txt");
-```
+    ```
 2. Instantiate new NeuralNetwork and create a new callback to receive response:
     ```
 NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback() {
@@ -45,13 +45,13 @@ NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback
 
     ```
 4. Finally, run the learningg of neural network:
-```
+    ```
 neuralNetwork.startLearning();
-```
+    ```
 
 Full example:
 ```
- float[][] x = DataUtils.readInputsFromFile("data/x.txt");
+        float[][] x = DataUtils.readInputsFromFile("data/x.txt");
         int[] t = DataUtils.readOutputsFromFile("data/t.txt");
 
         NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback() {
