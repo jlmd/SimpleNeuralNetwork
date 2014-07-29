@@ -11,11 +11,10 @@ import com.jlmd.simpleneuralnetwork.neuralnetwork.callback.INeuralNetworkCallbac
  */
 public class Main {
     public static void main(String [] args){
-        System.out.println("Running neural network ... ");
+        System.out.println("Starting neural network sample... ");
 
         float[][] x = DataUtils.readInputsFromFile("data/x.txt");
         int[] t = DataUtils.readOutputsFromFile("data/t.txt");
-
 
         NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback() {
             @Override
