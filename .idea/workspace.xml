@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="079b5dac-43a1-4b3b-9c65-4b89b8332dd9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleNeuralNetwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,8 +123,8 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18351477" vertical-offset="137" max-vertical-offset="1845">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.32348368" vertical-offset="122" max-vertical-offset="1845">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -599,12 +598,12 @@
       <workItem from="1406303302269" duration="5913000" />
       <workItem from="1406361090948" duration="4855000" />
       <workItem from="1406562714449" duration="4291000" />
-      <workItem from="1406646004195" duration="2633000" />
+      <workItem from="1406646004195" duration="2690000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36943000" />
+    <option name="totallyTimeSpent" value="37000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="272" width="1280" height="778" extended-state="6" />
@@ -1070,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18351477" vertical-offset="137" max-vertical-offset="1845">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.32348368" vertical-offset="122" max-vertical-offset="1845">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
           <folding />
         </state>
       </provider>
