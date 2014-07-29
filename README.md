@@ -15,6 +15,7 @@ Features
 Usage
 ----
 This is a simple usage with default configuration:
+
 1. First of all, load input and output data. You can read it from external text file:
     ```
 float[][] x = DataUtils.readInputsFromFile("data/x.txt");
