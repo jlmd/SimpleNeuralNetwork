@@ -123,6 +123,10 @@ public class NeuralNetwork {
         this.iterationsLimit = iterationsLimit;
     }
 
+    /**
+     * Kernel of neural network. This code run on a separate thread and do all necessary work to make
+     * the neural network learn.
+     */
     public class NeuralNetworkThread implements Runnable {
         @Override
         public void run() {
