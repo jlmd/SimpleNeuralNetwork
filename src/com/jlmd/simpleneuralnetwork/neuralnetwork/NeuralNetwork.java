@@ -73,32 +73,7 @@ public class NeuralNetwork {
             vWeights = hiddenLayerNeuron.getVWeights();
             wWeights = hiddenLayerNeuron.getWWeights();
 
-            new Thread(new Runnable() {
-                public void run() {
-                    float quadraticError = 0;
-                    float[] f;
-                    int success = 0;
-                    for (int i = 0; i<iterationsLimit; i++) {
-                        success = 0;
-                        for (int z = 0; z<nElements; z++) {
-                            analyzer = new Analyzer (getRowElements(z), wWeights, bias, vWeights, bOut, neurons, transferFunction, dimension);
-                            f = analyzer.getFOutArray();
-                            fOut = analyzer.getFOut();
-                            learner = new Learner (outputs[z], fOut, f, vWeights, wWeights, bias, bOut, neurons, getRowElements(z), dimension);
-                            vWeights = learner.getVWeights();
-                            wWeights = learner.getWWeights();
-                            bias = learner.getBias();
-                            bOut = learner.getBOut();
-                            success = resultParser.countSuccesses(success, fOut, outputs[z]);
-                            quadraticError += Math.pow(((outputs[z] - fOut)), 2);
-                        }
-                        quadraticError *= 0.5f;
-                    }
-                    float successPercentage = (success / (float)nElements) * 100;
-                    Result result = new Result(analyzer, resultParser, successPercentage, quadraticError);
-                    neuralNetworkCallback.success(result);
-                }
-            }).start();
+            new NeuralNetworkThread().run();
 
         } catch (NotSameInputOutputSizeException e) {
             neuralNetworkCallback.failure(Error.NOT_SAME_INPUT_OUTPUT);
@@ -146,5 +121,33 @@ public class NeuralNetwork {
 
     public void setIterationsLimit(int iterationsLimit) {
         this.iterationsLimit = iterationsLimit;
+    }
+
+    public class NeuralNetworkThread implements Runnable {
+        @Override
+        public void run() {
+            float quadraticError = 0;
+            float[] f;
+            int success = 0;
+            for (int i = 0; i<iterationsLimit; i++) {
+                success = 0;
+                for (int z = 0; z<nElements; z++) {
+                    analyzer = new Analyzer (getRowElements(z), wWeights, bias, vWeights, bOut, neurons, transferFunction, dimension);
+                    f = analyzer.getFOutArray();
+                    fOut = analyzer.getFOut();
+                    learner = new Learner (outputs[z], fOut, f, vWeights, wWeights, bias, bOut, neurons, getRowElements(z), dimension);
+                    vWeights = learner.getVWeights();
+                    wWeights = learner.getWWeights();
+                    bias = learner.getBias();
+                    bOut = learner.getBOut();
+                    success = resultParser.countSuccesses(success, fOut, outputs[z]);
+                    quadraticError += Math.pow(((outputs[z] - fOut)), 2);
+                }
+                quadraticError *= 0.5f;
+            }
+            float successPercentage = (success / (float)nElements) * 100;
+            Result result = new Result(analyzer, resultParser, successPercentage, quadraticError);
+            neuralNetworkCallback.success(result);
+        }
     }
 }
