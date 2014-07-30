@@ -11,6 +11,27 @@ public class Learner {
     private float bOut;
 
     public Learner(float t, float fOut, float[] f, float[] vWeights, float[][] wWeights, float[] bias, float bOut, int neurons, float[] x, int dimension){
+        this.bias = new float[neurons];
+        this.vWeights = new float[neurons];
+        this.wWeights = new float[dimension][neurons];
+
+        initLearn(t, fOut, f, vWeights, wWeights, bias, bOut, neurons, x, dimension);
+    }
+
+    /**
+     * Initialize the learn
+     * @param t Output result
+     * @param fOut Out function
+     * @param f Functions
+     * @param vWeights
+     * @param wWeights
+     * @param bias
+     * @param bOut
+     * @param neurons Number of neurons
+     * @param x Inputs
+     * @param dimension Dimension of inputs
+     */
+    private void initLearn(float t, float fOut, float[] f, float[] vWeights, float[][] wWeights, float[] bias, float bOut, int neurons, float[] x, int dimension) {
         float error = t - fOut;
         float n = 0.05f;
         float dv;
@@ -18,9 +39,7 @@ public class Learner {
         float[][] dw = new float[dimension][neurons];
         float[] dbi = new float[neurons];
         float[] db = new float[neurons];
-        this.bias = new float[neurons];
-        this.vWeights = new float[neurons];
-        this.wWeights = new float[dimension][neurons];
+
 
         // Modify v weights
         dv = fOut * (1-fOut) * error;
