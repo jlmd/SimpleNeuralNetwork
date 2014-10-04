@@ -45,7 +45,7 @@ NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback
     }
 
     ```
-4. Finally, run the learningg of neural network:
+4. Finally, run learning of neural network:
     ```
 neuralNetwork.startLearning();
     ```
