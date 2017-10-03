@@ -18,12 +18,12 @@ This is a simple usage with default configuration:
 
 1. First of all, load input and output data. You can read it from external text file:
 
-    ``` java
+```java
 float[][] x = DataUtils.readInputsFromFile("data/x.txt");
 int[] t = DataUtils.readOutputsFromFile("data/t.txt");
-    ```
+```
 2. Instantiate new NeuralNetwork and create a new callback to receive response:
-    ``` java
+```java
 NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback() {
             @Override
             public void success(Result result) {
@@ -33,25 +33,25 @@ NeuralNetwork neuralNetwork = new NeuralNetwork(x, t, new INeuralNetworkCallback
             public void failure(Error error) {
             }
         });
-    ```
+```
 
 3. Predict a value using Result entity from success response:
 
-    ``` java
+```java
     @Override
     public void success(Result result) {
         float[] valueToPredict = new float[] {-1.2f, 0.796f};
         System.out.println("Predicted result: " + result.predictValue(valueToPredict));
     }
 
-    ```
+```
 4. Finally, run learning of neural network:
-    ``` java
+```java
 neuralNetwork.startLearning();
-    ```
+```
 
 Full example:
-``` java
+```java
         float[][] x = DataUtils.readInputsFromFile("data/x.txt");
         int[] t = DataUtils.readOutputsFromFile("data/t.txt");
 
@@ -84,7 +84,7 @@ Example
 ----
 
 This project has a example with real data that contains a list of 250 patients with two results of a analysis as inputs and 0 or 1 (depending if the has a disease or not) as output:
-````
+```
          Inputs                         Output
 ------------------------        --------------------
  Result 1       Result 2                Disease
@@ -94,7 +94,7 @@ This project has a example with real data that contains a list of 250 patients w
  0.1797         0.4518                     0
 -0.0982         0.5876                     1
   ...             ...                     ...
-````
+```
 
 Using this data in neural network, this project is able to predict the output (disease result) of a patient that isn't in the data list with a minimum **percentage of success of 88%**.
 
