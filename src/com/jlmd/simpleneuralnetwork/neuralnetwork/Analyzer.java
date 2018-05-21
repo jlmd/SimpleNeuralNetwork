@@ -2,11 +2,13 @@ package com.jlmd.simpleneuralnetwork.neuralnetwork;
 
 import com.jlmd.simpleneuralnetwork.neuralnetwork.transfer.ITransferFunction;
 
+import java.io.Serializable;
+
 /**
  * Generate out function using weights and input values
  * @author jlmd
  */
-public class Analyzer {
+public class Analyzer implements Serializable {
     private float[] fOutArray;
     private float[][] wWeights;
     private float[] vWeights;
