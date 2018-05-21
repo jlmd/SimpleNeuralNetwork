@@ -28,8 +28,8 @@ public class Main {
     private final static String TESTING_FILE_NAME = "testing_data_set.txt";
 
     // Constants for default behaviour (see batch mode)
-    private final static boolean DEFAULT_RANDOMIZE_DATA_ORDER = true;
-    private final static double DEFAULT_TRAINING_PERCENTAGE = 0.7;
+    public final static boolean DEFAULT_RANDOMIZE_DATA_ORDER = false;
+    public final static double DEFAULT_TRAINING_PERCENTAGE = 0.67;
 
     // Constants for autoFill mode
     private final static Mode AUTO_MODE = Mode.BATCH;
@@ -162,7 +162,7 @@ public class Main {
         float[][] testDataSet = DataUtils.readInputsFromFile(PREPARED_DATA_DIR_NAME + "/" + TESTING_FILE_NAME);
         TestResult tr = new TestResult();
         for (float[] line : testDataSet) {
-            float[] input = Arrays.copyOfRange(line, 0, line.length);
+            float[] input = Arrays.copyOfRange(line, 0, line.length-1);
             int predictedValue = trainedNeuralNet.predictValue(input);
             int correctValue = (int) line[line.length - 1];
             tr.addPrediction(predictedValue, correctValue);
@@ -178,7 +178,7 @@ public class Main {
         fileOut.close();
     }
 
-    private static Result deserializeTrainedNetwork(String modelName) throws IOException, ClassNotFoundException {
+    public static Result deserializeTrainedNetwork(String modelName) throws IOException, ClassNotFoundException {
         Result r;
         FileInputStream fileIn = new FileInputStream(MODELS_DIR_NAME + "/" + modelName);
         ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -258,7 +258,7 @@ public class Main {
             bwo.write(lineAsArray[expectedLineLength - 1] + "\n");  // last field has output
         }
         for (String[] lineAsArray : allLinesAsArrays.subList(maxIndexForTraining, dataSetLength - 1)) {
-            bwt.write(String.join(",", lineAsArray) + "\n");
+            bwt.write(String.join(",", Arrays.copyOfRange(lineAsArray, 1, lineAsArray.length)) + "\n");
         }
 
         bwt.close();
