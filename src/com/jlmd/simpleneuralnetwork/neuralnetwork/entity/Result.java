@@ -3,11 +3,13 @@ package com.jlmd.simpleneuralnetwork.neuralnetwork.entity;
 import com.jlmd.simpleneuralnetwork.neuralnetwork.Analyzer;
 import com.jlmd.simpleneuralnetwork.neuralnetwork.parser.result.IResultParser;
 
+import java.io.Serializable;
+
 /**
  * Entity to save obtained result
  * @author jlmd
  */
-public class Result {
+public class Result implements Serializable {
     private float successPercentage;
     private float quadraticError;
     private Analyzer analyzer;
