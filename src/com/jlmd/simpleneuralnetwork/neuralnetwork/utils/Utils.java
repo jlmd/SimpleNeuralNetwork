@@ -6,6 +6,10 @@ import java.util.Random;
  * @author jlmd
  */
 public class Utils {
+
+    /** Pseudo-random number generator instance. */
+    private static final Random rand = new Random();
+
     /**
      * Returns a pseudo-random number between min and max, inclusive
      * @param min Minimum value
@@ -13,7 +17,6 @@ public class Utils {
      * @return float between min and max, inclusive
      */
     public static float randFloat(float min, float max) {
-        Random rand = new Random();
         return rand.nextFloat() * (max - min) + min;
     }
 }
